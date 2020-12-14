@@ -1,0 +1,25 @@
+{% extends 'blog/basic.html' %}
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for news in latest_news %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ news.title }}</h2>
+                    <p class="card-text text-muted h6">{{ news.author }} | {{ news.published | timesince}} </p>
+                    <p class="card-text">{{news.description }}</p>
+                    <p>{{ news_set.tag }}</p>
+                    <a href="{% url 'update_news' news.pk %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'delete_news' news.pk %}" class="btn btn-danger">Delete</a>
+
+{#                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>#}
+                </div>
+            </div>
+            {% endfor %}
+        <a href="{% url 'create_news'%}" class="btn btn-primary">Add</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

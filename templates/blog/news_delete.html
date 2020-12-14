@@ -1,0 +1,9 @@
+{% extends 'blog/basic.html' %}
+{% block content %}
+{% block title %}Delete News{% endblock %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ news.title }}"?</p>
+    <input type="submit" class="btn btn-danger" value="Yes">
+    </form>
+{% endblock %}

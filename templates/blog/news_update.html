@@ -1,0 +1,9 @@
+{% extends 'blog/basic.html' %}
+{% block content %}
+{% block title %}Update News{% endblock %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Update News">
+    </form>
+{% endblock %}
